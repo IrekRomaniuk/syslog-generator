@@ -12,7 +12,7 @@ import (
 func Send(protocol,ip,port string) error {
 	p := PanThreatLogs{"<141>Nov  3 12:53:35 test.com 1","2017/20/01 13:53:35","001901000999",
 		"THREAT", "file","1","2017/20/01 13:53:35","1.1.1.1","2.2.2.2","0.0.0.0","0.0.0.0","RULE fake",
-		"me","you", "App test","vsys1","app","dmz","ae1.100","ae2.200","LF-elk",
+		"me","you", "App test","vsys1","src","dst","ae1.100","ae2.200","LF-elk",
 		"2017/20/01 13:53:35","33891243","1","11111","22222","0","0","0x0","tcp","test",
 		"WebFix.exe","Microsoft PE File(52060)","any","low","server-to-client","5210010","0x0",
 		"10.10.10.0-10.255.255.255","10.20.20.20-10.255.255.255","0","","","","","","", "","","","","","",""}
