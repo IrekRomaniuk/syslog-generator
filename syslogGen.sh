@@ -2,10 +2,11 @@
 # Path to netcat
 NC="/bin/nc"
 # Where are we sending messages from / to?
-ORIG_IP="127.0.0.1"
-DEST_IP="127.0.0.11"
+ORIG_IP="1.1.1.1"
+DEST_IP="2.2.2.2"
 # List of messages.
 MESSAGES=("Error Event" "Warning Event" "Info Event")
+<141>Nov  3 12:53:35 MR-DC1-PFWP02.commonwealth.com 1,2017/20/01 13:53:35,001901000999,THREAT,file,1,2017/20/01 13:53:35,1.1.1.1,2.2.2.2,0.0.0.0,0.0.0.0,RULE fake,waltham\\mollo.admin,,APP test,vsys1,app,rep,ae1.20,ae2.192,LF-elk,2017/20/01 13:53:35,33891243,1,445,66666,0,0,0x0,tcp,test,\"CFN WebFix.exe\",Microsoft PE File(52060),any,low,server-to-client,5210010,0x0,10.0.0.0-10.255.255.255,10.0.0.0-10.255.255.255,0,,0,,,0,,,,,,,,0,38,0,0,0,PROD,MR-DC1-PFWP02,
 # How long to wait in between sending messages.
 SLEEP_SECS=1
 # How many message to send at a time.
