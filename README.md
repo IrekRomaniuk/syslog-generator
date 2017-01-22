@@ -1,5 +1,5 @@
 ## A simple Go program to generate syslog messages for PaloAlto firewalls 
-### Tested with PANOS 7.1.2: [Syslog Field Description](https://www.paloaltonetworks.com/documentation/61/pan-os/pan-os/reports-and-logging/syslog-field-descriptions)
+### [PANOS Syslog Field Description](https://www.paloaltonetworks.com/documentation/61/pan-os/pan-os/reports-and-logging/syslog-field-descriptions)
 ##### It sends a X random syslog messages every Y seconds to a device of your designation.
 ##### Usage 
 ```
