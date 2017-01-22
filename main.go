@@ -12,7 +12,7 @@ var (
 	IP = flag.String("ip", "10.34.1.100", "Syslog server IP address")
 	PORT = flag.String("port", "11666", "Port")
 	PROTOCOL = flag.String("protocol", "tcp", "Protocol")
-	SLEEP = flag.Duration("sleep", 1, "Sleep time between syslog messages")
+	SLEEP = flag.Duration("sleep", 1, "Sleep time between syslog messages in sec")
 	COUNT = flag.Int("count", 1, "Number of syslog messages to send")
 	version = flag.Bool("v", false, "Prints current version")
 	//PRINT = flag.Bool("print", true, "print to console")
