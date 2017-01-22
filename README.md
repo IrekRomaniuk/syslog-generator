@@ -18,4 +18,8 @@ $syslog-generator -h'
   -v    Prints current version
 ```
 
-"G0s9J4jAU3" (per random.org)
+URL field in threat logs is set to "G0s9J4jAU3" (per random.org) for easier identification of generated entries
+
+## TODO:
+1. Include Traffic logs
+2. Provide option to generate random IP addresses and ports in syslog entries instead of "1.1.1.1","2.2.2.2" and "11111","22222"
