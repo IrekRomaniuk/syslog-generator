@@ -10,8 +10,6 @@ import (
 )
 
 func (p PanThreatLogs) Send(protocol,ip,port string) error {
-
-
 	l := "2006/02/01 03:04:05"
 	name, err := os.Hostname()
 	if err != nil {
