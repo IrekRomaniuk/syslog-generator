@@ -47,7 +47,7 @@ func main() {
 
 	for i:=0; i < *COUNT; i++ {
 		p.Send(*PROTOCOL,*IP,*PORT)
-		time.Sleep(time.Duration(*SLEEP))
+		time.Sleep(time.Duration(*SLEEP)*time.Second)
 	}
 
 }
