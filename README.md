@@ -2,6 +2,7 @@
 ##### It sends a X random syslog messages every Y seconds to a device of your designation.
 
 Usage 'syslog-generator -h':
+
   -count int
         Number of syslog messages to send (default 1)
   -ip string
