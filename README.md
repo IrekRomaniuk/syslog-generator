@@ -6,24 +6,15 @@
 ```
 $syslog-generator -h'
   -count int
-        Number of syslog messages to send (default 1)
-        
+        Number of syslog messages to send (default 1)    
   -ip string
-  
-        Syslog server IP address (default "10.34.1.100")
-        
-  -port string
-  
-        Port (default "11666")
-        
-  -protocol string
-  
-        Protocol (default "tcp")
-        
-  -sleep duration
-  
-        Sleep time between syslog messages (default 1ns)
-        
+        Syslog server IP address (default "10.34.1.100")      
+  -port string 
+        Port (default "11666")       
+  -protocol string  
+        Protocol (default "tcp")        
+  -sleep duration 
+        Sleep time between syslog messages (default 1ns)        
   -v    Prints current version
 ```
 
