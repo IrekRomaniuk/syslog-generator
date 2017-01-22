@@ -1,3 +1,5 @@
-A simple shell script to generate syslog messages with netcat.  It sends a X random syslog messages every Y seconds to a device of your designation.
+A simple Go program to generate syslog messages for PaloAlto firewalls (tested with PANOS 7.1.2).  It sends a X 
+random syslog messages every Y seconds to a device of your designation.
 
-Change the variables to match your environment and run!
+
+"G0s9J4jAU3" (per random.org)
