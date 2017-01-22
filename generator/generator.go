@@ -50,3 +50,11 @@ NATDestinationPort,Flags,IPprotocol,Action,URL,ThreatContentName,Category,Severi
 SourceLocation,DestinationLocation,Cpadding,ContentType,Pcap_id,Filedigest,Cloud,Url_idx,User_agent,Filetype,Xff,
 Referer,Sender,Subject,Recipient,Reportid string
 }
+type PanTrafficLogs struct {
+	Domain,ReceiveTime,SerialNum,Type,Subtype,ConfigVersion,GeneratedTime,SourceIP,DestinationIP,
+NATSourceIP,NATDestinationIP,RuleName,SourceUser,DestinationUser,Application,VirtualSystem,SourceZone,DestinationZone,
+InboundInterface,OutboundInterface,LogAction,TimeLogged,SessionID,RepeatCount,SourcePort,DestinationPort,NATSourcePort,
+NATDestinationPort,Flags,Protocol,Action,Bytes,BytesSent,BytesReceived,Packets, StartTime,ElapsedTime,Category, Padding,
+SequenceNumber,ActionFlags,SourceLocation,DestinationLocation,Cpadding,PacketsSent,PacketsReceived,
+SessionEndReason string
+}

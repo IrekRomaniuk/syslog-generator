@@ -31,7 +31,7 @@ $syslog-generator -h'
   Jan 22 10:24:07 January 22 10:24:07 dc01ap-p001mon 1,2017/22/01 10:24:07,001901000999,THREAT,file,1,2017/22/01 10:24:08,1.1.1.1,2.2.2.2,0.0.0.0,0.0.0.0,RULE fake,me,you,App test,vsys1,src,dst,ae1.100,ae2.200,LF-elk,2017/22/01 10:24:09,33891243,1,11111,22222,0,0,0x0,tcp,test,G0s9J4jAU3,This is test only,any,low,server-to-client,5210010,0x0,10.10.10.0-10.255.255.255,10.20.20.20-10.255.255.255,0,,,,,,,,,,,,,
 ```
 
-URL field in threat logs is set to "G0s9J4jAU3" (per random.org) for easier identification of generated entries
+Rule field is set to "G0s9J4jAU3" (per random.org) for easier identification of generated entries
 
 ## TODO:
 1. Include Traffic logs
