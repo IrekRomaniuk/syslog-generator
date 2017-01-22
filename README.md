@@ -17,7 +17,7 @@ $syslog-generator -h'
   -v    Prints current version
   
   ```
-  ##### Setup
+##### Setup
   ```
   $ go get github.com/IrekRomaniuk/syslog-generator
   $ cd $GOPATH/bin
