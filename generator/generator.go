@@ -33,7 +33,7 @@ func (p PanThreatLogs) Send(protocol,ip,port string) error {
 		now.Hour(),now.Minute(),now.Second()) + " " + name + " 1"
 	p.ReceiveTime, p.GenerateTime, p.TimeLogged = t, now.Add(1*time.Second).Format(l),
 		now.Add(2*time.Second).Format(l)
-	//fmt.Println(p.ReceiveTime, p.GenerateTime, p.TimeLogged)
+	fmt.Println(p.ReceiveTime, p.GenerateTime, p.TimeLogged)
 	v := reflect.ValueOf(p)
 	values := make([]string, v.NumField())
 	for i := 0; i < v.NumField(); i++ {
