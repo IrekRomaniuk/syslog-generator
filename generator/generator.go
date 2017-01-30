@@ -27,7 +27,7 @@ func (p PanThreatLogs) Send(protocol,ip,port string) error {
 	if err != nil {
 		return err
 	}
-	now := time.Now()
+	now := time.Now().UTC()
 	t := now.Format(l)  //yyyy/dd/mm HH:mm:ss
 	p.Domain = "<141>" + fmt.Sprintf("%03s %02d %02d:%02d:%02d",now.Month(),now.Day(),
 		now.Hour(),now.Minute(),now.Second()) + " " + name + " 1"
