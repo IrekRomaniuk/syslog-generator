@@ -6,15 +6,17 @@ import (
 	"fmt"
 	"os"
 	"time"
+	"strconv"
 )
 
 var (
 	IP = flag.String("ip", "10.34.1.100", "Syslog server IP address")
 	PORT = flag.String("port", "11666", "Port")
 	PROTOCOL = flag.String("protocol", "tcp", "Protocol")
-	TYPE = flag.String("type", "Threat", "Type: Traffic or Threat")
-	SLEEP = flag.Int("sleep", 1, "Sleep time between syslog messages in sec")
-	COUNT = flag.Int("count", 1, "Number of syslog messages to send")
+	//TYPE = flag.String("type", "Threat", "Type: Traffic or Threat")
+	//SLEEP = flag.Int("sleep", 1, "Sleep time between syslog messages in sec")
+        FREQ = flag.Uint("freq", 2, "Frequency of syslog messages/sec")
+	//COUNT = flag.Int("count", 1, "Number of syslog messages to send")
 	version = flag.Bool("v", false, "Prints current version")
 	//PRINT = flag.Bool("print", true, "print to console")
 )
@@ -51,9 +53,13 @@ func main() {
 		"1024","528","496","10","2016/10/28 08:13:10","52","any","0","2805290265","0x0",
 		"10.0.0.0-10.255.255.255","10.0.0.0-10.255.255.255","0","6","4","tcp-rst-from-server"}*/
 
-	for i:=0; i < *COUNT; i++ {
+	dur, _ := time.ParseDuration(strconv.Itoa(1000/int(*FREQ)) + "ms")
+	fmt.Println(dur)
+	signal := time.Tick(dur)
+	//for i:=0; i < *COUNT; i++ {
+	for range signal {
 		threat.Send(*PROTOCOL,*IP,*PORT)
-		time.Sleep(time.Duration(*SLEEP)*time.Second)
+		//time.Sleep(time.Duration(*SLEEP)*time.Second)
 	}
 
 
