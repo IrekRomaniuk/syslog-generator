@@ -54,11 +54,11 @@ func main() {
 		"10.0.0.0-10.255.255.255","10.0.0.0-10.255.255.255","0","6","4","tcp-rst-from-server"}*/
 
 	dur, _ := time.ParseDuration(strconv.Itoa(1000/int(*FREQ)) + "ms")
-	fmt.Println(dur)
+	//fmt.Println(dur)
 	signal := time.Tick(dur)
 	//for i:=0; i < *COUNT; i++ {
 	for range signal {
-		threat.Send(*PROTOCOL,*IP,*PORT)
+		go threat.Send(*PROTOCOL,*IP,*PORT)
 		//time.Sleep(time.Duration(*SLEEP)*time.Second)
 	}
 
