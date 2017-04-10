@@ -6,6 +6,8 @@
 $syslog-generator -h'
  -freq uint
        Frequency of syslog messages/sec (default 2)
+ -count uint64
+       Number of syslog messages to send (default 10000)
  -ip string
        Syslog server IP address (default "10.34.1.100")
  -port string
