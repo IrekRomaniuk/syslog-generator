@@ -15,9 +15,11 @@ var (
 	IP       = flag.String("ip", "10.34.1.100", "Syslog server IP address")
 	// PORT : Syslog server port
 	PORT     = flag.String("port", "11666", "Port")
+	// PROTOCOL : Syslog server protocol
 	PROTOCOL = flag.String("protocol", "tcp", "Protocol")
 	TYPE     = flag.String("type", "Threat", "Type: Traffic or Threat")
 	//SLEEP = flag.Int("sleep", 1, "Sleep time between syslog messages in sec")
+	// FREQ : Frequency of syslog messages per sec
 	FREQ = flag.Uint("freq", 2, "Frequency of syslog messages/sec")
 	COUNT = flag.Uint64("count", 10000, "Number of syslog messages to send")
 	version = flag.Bool("v", false, "Prints current version")
@@ -32,7 +34,7 @@ var (
 
 func init() {
 	flag.Usage = func() {
-		fmt.Printf("Copyright 2017 @IrekRomaniuk. All rights reserved.\n")
+		fmt.Printf("Copyright 2017 @IrekRomaniuk. All rights resgit brerved.\n")
 		fmt.Printf("Usage of %s:\n", os.Args[0])
 		flag.PrintDefaults()
 	}
