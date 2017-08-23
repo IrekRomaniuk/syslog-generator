@@ -23,7 +23,7 @@ var (
 	// FREQ : Frequency of syslog messages per sec
 	FREQ    = flag.Uint("freq", 2, "Frequency of syslog messages/sec")
 	COUNT   = flag.Uint64("count", 10000, "Number of syslog messages to send")
-	SRC     = flag.String("src address", "1.2.3.4", "Source IP address in syslog")
+	SRC     = flag.String("src", "1.2.3.4", "Source IP address in syslog")
 	version = flag.Bool("v", false, "Prints current version")
 	//PRINT = flag.Bool("print", true, "print to console")
 )
