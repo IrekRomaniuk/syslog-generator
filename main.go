@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"math/rand"
 	"os"
 	"strconv"
 	"sync"
@@ -77,7 +78,12 @@ func main() {
 					os.Exit(1)
 				}
 				mutex.Unlock()
-				threat.Send(*PROTOCOL, *IP, *PORT, *SRC)
+				if *SRC == "random" {
+					r := strconv.Itoa(rand.Intn(254) + 1)
+					threat.Send(*PROTOCOL, *IP, *PORT, r+"."+r+"."+r+"."+r)
+				} else {
+					threat.Send(*PROTOCOL, *IP, *PORT, *SRC)
+				}
 
 			}()
 			//go threat.Send(*PROTOCOL, *IP, *PORT)
