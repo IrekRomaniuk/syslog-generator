@@ -25,6 +25,7 @@ var (
 	FREQ    = flag.Uint("freq", 2, "Frequency of syslog messages/sec")
 	COUNT   = flag.Uint64("count", 10000, "Number of syslog messages to send")
 	SRC     = flag.String("src", "1.2.3.4", "Source IP address in syslog")
+	SEV     = flag.String("sev", "low", "Severity")
 	version = flag.Bool("v", false, "Prints current version")
 	//PRINT = flag.Bool("print", true, "print to console")
 )
@@ -80,9 +81,9 @@ func main() {
 				mutex.Unlock()
 				if *SRC == "random" {
 					r := strconv.Itoa(rand.Intn(254) + 1)
-					threat.Send(*PROTOCOL, *IP, *PORT, r+"."+r+"."+r+"."+r)
+					threat.Send(*PROTOCOL, *IP, *PORT, r+"."+r+"."+r+"."+r, *SEV)
 				} else {
-					threat.Send(*PROTOCOL, *IP, *PORT, *SRC)
+					threat.Send(*PROTOCOL, *IP, *PORT, *SRC, *SEV)
 				}
 
 			}()

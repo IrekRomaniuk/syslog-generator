@@ -15,7 +15,7 @@ type Sender interface {
 }
 
 // Send threats
-func (p PanThreatLogs) Send(protocol, ip, port, src string) error {
+func (p PanThreatLogs) Send(protocol, ip, port, src, sev string) error {
 	l := "2006/02/01 15:04:05" //24h format
 	name, err := os.Hostname()
 	if err != nil {
@@ -28,6 +28,7 @@ func (p PanThreatLogs) Send(protocol, ip, port, src string) error {
 	p.ReceiveTime, p.GenerateTime, p.TimeLogged = t, now.Add(1*time.Second).Format(l),
 		now.Add(2*time.Second).Format(l)
 	p.SourceIP = src
+	p.Severity = sev
 	//fmt.Println(p.ReceiveTime, p.GenerateTime, p.TimeLogged)
 	v := reflect.ValueOf(p)
 	values := make([]string, v.NumField())
