@@ -19,8 +19,9 @@ var (
 	PORT = flag.String("port", "11666", "Port")
 	// PROTOCOL : Syslog server protocol
 	PROTOCOL = flag.String("protocol", "tcp", "Protocol")
+	// TYPE : threat or traffic
 	TYPE     = flag.String("type", "Threat", "Type: Traffic or Threat")
-	//SLEEP = flag.Int("sleep", 1, "Sleep time between syslog messages in sec")
+	/*SLEEP = flag.Int("sleep", 1, "Sleep time between syslog messages in sec")*/
 	// FREQ : Frequency of syslog messages per sec
 	FREQ    = flag.Uint("freq", 2, "Frequency of syslog messages/sec")
 	COUNT   = flag.Uint64("count", 10000, "Number of syslog messages to send")
@@ -81,17 +82,21 @@ func main() {
 				mutex.Unlock()
 				if *SRC == "random" {
 					r := strconv.Itoa(rand.Intn(254) + 1)
-					threat.Send(*PROTOCOL, *IP, *PORT, r+"."+r+"."+r+"."+r, *SEV)
+					send(threat, *PROTOCOL, *IP, *PORT, r+"."+r+"."+r+"."+r, *SEV)
 				} else {
-					threat.Send(*PROTOCOL, *IP, *PORT, *SRC, *SEV)
+					send(threat, *PROTOCOL, *IP, *PORT, *SRC, *SEV)
 				}
 
 			}()
 			//go threat.Send(*PROTOCOL, *IP, *PORT)
 		case "Traffic":
-			go traffic.Send(*PROTOCOL, *IP, *PORT)
+			go send(traffic, *PROTOCOL, *IP, *PORT, *SRC, *SEV)
 		}
 		//time.Sleep(time.Duration(*SLEEP)*time.Second)
 	}
+}
 
+
+func send(syslog generator.Syslog, prot, ip, port, src, sev string) {
+	syslog.Send(prot, ip, port, src, sev) 
 }

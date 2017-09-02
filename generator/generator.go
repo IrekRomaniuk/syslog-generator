@@ -9,9 +9,9 @@ import (
 	"time"
 )
 
-// Sender ...
-type Sender interface {
-	Send(protocol, ip, port, src string) error
+// Syslog ...
+type Syslog interface {
+	Send(protocol, ip, port, src, sev string) error
 }
 
 // Send threats
@@ -51,7 +51,7 @@ func (p PanThreatLogs) Send(protocol, ip, port, src, sev string) error {
 }
 
 // Send Traffic
-func (p PanTrafficLogs) Send(protocol, ip, port string) error {
+func (p PanTrafficLogs) Send(protocol, ip, port, src, sev string) error {
 	l := "2006/02/01 15:04:05" //24h format
 	name, err := os.Hostname()
 	if err != nil {
@@ -63,6 +63,7 @@ func (p PanTrafficLogs) Send(protocol, ip, port string) error {
 		now.Hour(), now.Minute(), now.Second()) + " " + name + " 1"
 	p.ReceiveTime, p.GenerateTime, p.TimeLogged = t, now.Add(1*time.Second).Format(l),
 		now.Add(2*time.Second).Format(l)
+	p.SourceIP = src
 	//fmt.Println(p.ReceiveTime, p.GenerateTime, p.TimeLogged)
 	v := reflect.ValueOf(p)
 	values := make([]string, v.NumField())
