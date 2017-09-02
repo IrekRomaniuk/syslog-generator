@@ -65,11 +65,9 @@ func main() {
 		"10.0.0.0-10.255.255.255", "10.0.0.0-10.255.255.255", "0", "6", "4", "tcp-rst-from-server"}
 
 	dur, _ := time.ParseDuration(strconv.Itoa(1000/int(*FREQ)) + "ms")
-	//fmt.Println(dur)
 	signal := time.Tick(dur)
 	var counter uint64 = 0
 	var mutex = &sync.Mutex{}
-	//for i:=0; i < *COUNT; i++ {
 	for range signal {
 		switch *TYPE {
 		case "Threat":
@@ -87,8 +85,7 @@ func main() {
 					send(threat, *PROTOCOL, *IP, *PORT, *SRC, *SEV)
 				}
 
-			}()
-			//go threat.Send(*PROTOCOL, *IP, *PORT)
+			}()			
 		case "Traffic":
 			go send(traffic, *PROTOCOL, *IP, *PORT, *SRC, *SEV)
 		}
